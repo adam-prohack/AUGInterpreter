@@ -1,0 +1,95 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c0081eed-0f06-431b-87fe-fca638b8d060</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>AUGInterpreter.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AUGInterpreter</Name>
+    <RootNamespace>AUGCompiler</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AST\BooleanExpressions\BooleanExpressionBase.py" />
+    <Compile Include="AST\BooleanExpressions\BooleanNumberComparsionOperation.py" />
+    <Compile Include="AST\BooleanExpressions\BooleanConcatenationOperation.py" />
+    <Compile Include="AST\BooleanExpressions\BooleanNegativeValue.py" />
+    <Compile Include="AST\BooleanExpressions\BooleanValue.py" />
+    <Compile Include="AST\BooleanExpressions\BooleanStringComparsionOperation.py" />
+    <Compile Include="AST\InstructionExpressions\AssignNumberInstruction.py" />
+    <Compile Include="AST\InstructionExpressions\AssignStringInstruction.py" />
+    <Compile Include="AST\InstructionExpressions\ExitInstruction.py" />
+    <Compile Include="AST\InstructionExpressions\IfExpression.py" />
+    <Compile Include="AST\InstructionExpressions\IfElseExpression.py" />
+    <Compile Include="AST\InstructionExpressions\InstructionPair.py" />
+    <Compile Include="AST\InstructionExpressions\InstuctionExpressionBase.py" />
+    <Compile Include="AST\InstructionExpressions\NoOperation.py" />
+    <Compile Include="AST\InstructionExpressions\PrintStringFunction.py" />
+    <Compile Include="AST\InstructionExpressions\PrintNumberFunction.py" />
+    <Compile Include="AST\InstructionExpressions\UntilExpression.py" />
+    <Compile Include="AST\InstructionExpressions\WhileExpression.py" />
+    <Compile Include="AST\NumberExpressions\NumberExpressionBase.py" />
+    <Compile Include="AST\NumberExpressions\NumberSimpleOperation.py" />
+    <Compile Include="AST\NumberExpressions\NumberReadInputOperation.py" />
+    <Compile Include="AST\NumberExpressions\NumberNegativeValue.py" />
+    <Compile Include="AST\NumberExpressions\StringPositionFunction.py" />
+    <Compile Include="AST\NumberExpressions\StringLengthFunction.py" />
+    <Compile Include="AST\NumberExpressions\NumberVariable.py" />
+    <Compile Include="AST\NumberExpressions\NumberValue.py" />
+    <Compile Include="AST\StringExpressions\StringSubstringFunction.py" />
+    <Compile Include="AST\StringExpressions\StringConcatenateFunction.py" />
+    <Compile Include="AST\StringExpressions\StringReadInputOperation.py" />
+    <Compile Include="AST\StringExpressions\StringVariable.py" />
+    <Compile Include="AST\StringExpressions\StringValue.py" />
+    <Compile Include="AST\StringExpressions\StringExpressionBase.py" />
+    <Compile Include="AST\__init__.py" />
+    <Compile Include="AUGInterpreter.py" />
+    <Compile Include="AUGParser.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>0.0</Version>
+      <Description>env (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="example_code.aug" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AST\" />
+    <Folder Include="AST\BooleanExpressions\" />
+    <Folder Include="AST\InstructionExpressions\" />
+    <Folder Include="AST\StringExpressions\" />
+    <Folder Include="AST\NumberExpressions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
